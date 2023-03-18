@@ -133,9 +133,10 @@ export default (new Transformer({
           }
         }
 
-        logger.warn({
+        asset.addDiagnostic({
           message: escapeMarkdown(diagnosticMessage),
           codeFrames: codeframe ? [codeframe] : undefined,
+          level: 'warn',
         });
       }
     }
