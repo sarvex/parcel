@@ -107,10 +107,7 @@ impl FileSystem for JsFileSystem {
       res.get_value()
     };
 
-    match is_file() {
-      Ok(res) => res,
-      Err(_) => false,
-    }
+    is_file().unwrap_or(false)
   }
 
   fn is_dir<P: AsRef<Path>>(&self, path: P) -> bool {
@@ -121,10 +118,7 @@ impl FileSystem for JsFileSystem {
       res.get_value()
     };
 
-    match is_dir() {
-      Ok(res) => res,
-      Err(_) => false,
-    }
+    is_dir().unwrap_or(false)
   }
 }
 
